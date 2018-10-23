@@ -92,12 +92,16 @@ def nlp_tokenise():
         		objWordsTags['text'] = word[0]
         		objWordsTags['tag'] = word[1]
         		objParsedWords.append(objWordsTags)
+
+        	#app.log.info(objParsedWords)
+
         
-        	objSentence['words'] = objParsedWords
+        	objSentence['words'] = objParsedWords  # this the problem?
         	objParsedSentences.append(objSentence)
         
         processed['sentences'] = objParsedSentences
-	
+        app.log.info(json.dumps(processed))
+	    
         return (json.dumps(processed))
 
     except Exception as ex:
